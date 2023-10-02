@@ -1,13 +1,19 @@
 <script setup lang="ts">
-  import { ref } from "vue"  
+  import { ref } from "vue"
+  import type { FormLogin } from "types/auth";
+
+  const props = defineProps<{
+    error?: object | string | null,
+    sending: boolean
+  }>()  
+
+  const email = ref('')  
+  const password = ref('')
+
+  const emit = defineEmits<{
+    (e: 'submit', { email, password }: FormLogin): void
+  }>()
   
-  defineProps({
-    error: [Object, String],
-    sending: Boolean
-  })  
-  const emit = defineEmits(['submit'])  
-  const email = ref(null)  
-  const password = ref(null)  
   const submit = async () => {
     emit('submit', {
       email: email.value,
@@ -50,10 +56,10 @@
       </label>
       <UButton
         type="submit"
-        :isDisabled='sending'
+        :isDisabled='props.sending'
         data-testid="submit-btn"
-      >{{ sending ? 'Iniciando sesión...' : 'Iniciar sesión' }}</UButton>
+      >{{ props.sending ? 'Iniciando sesión...' : 'Iniciar sesión' }}</UButton>
     </div>
-    <AppFlashMessage :error='error' />
+    <AppFlashMessage :error='props.error' />
   </form>
 </template>
