@@ -1,7 +1,7 @@
 import { ref } from "vue"
-import { useRouter } from 'vue-router';
-import * as AuthService from "@/modules/Auth/services";
-import { getError } from "@/utils/helpers.js";
+//import { useRouter } from 'vue-router';
+import * as AuthService from "../../services/auth";
+import { getError } from "../../utils/helpers";
 
 interface UserAuthRegister{
   name: string;
@@ -11,7 +11,7 @@ interface UserAuthRegister{
 }
 
 export function useRegister() {
-  const router = useRouter();
+  //const router = useRouter();
   const error = ref(null)
   const sending = ref(false)
   
@@ -25,7 +25,7 @@ export function useRegister() {
     error.value = null;
     sending.value = true;  
     AuthService.registerUser(payload)
-      .then(() => router.push("/dashboard"))
+      //.then(() => router.push("/dashboard"))
       .catch((e) => error.value = getError(e))
       .finally(() => sending.value = false);
   }

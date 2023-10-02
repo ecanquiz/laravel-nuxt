@@ -1,9 +1,9 @@
 <script setup lang="ts">  
-  //import IconLogo from "@/icons/IconLogo.vue"
-  //import FormLogin from "../components/FormLogin.vue";
-  //import { useLogin } from '../composables/useLogin'  
+  //import IconLogo from "../icon/Logo.vue"
+  import FormLogin from "../components/auth/FormLogin.vue";
+  import { useLogin } from '../composables/auth/useLogin'  
 
-  //const { login, sending, error } = useLogin()
+  const { login, sending, error } = useLogin()
 </script>
 
 <template>

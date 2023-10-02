@@ -1,9 +1,9 @@
 <script setup lang="ts">
   //import IconLogo from "@/icons/IconLogo.vue"
-  //import FormRegister from "../components/FormRegister.vue";
-  //import { useRegister } from '../composables/useRegister'
+  import FormRegister from "../components/auth/FormRegister.vue";
+  import { useRegister } from '../composables/auth/useRegister'
 
-  //const { register, sending, error } = useRegister()
+  const { register, sending, error } = useRegister()
 </script>
 
 <template>
