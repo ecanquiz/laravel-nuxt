@@ -17,7 +17,6 @@ export function useLogin(): StandaloneLogin {
       password: form.password,
     }
     error.value = null;
-    alert(payload.email)
     try {
       sending.value = true;
       await AuthService.login(payload);
@@ -25,6 +24,7 @@ export function useLogin(): StandaloneLogin {
       if (authUser) {
         auth.setGuest({ value: "isNotGuest" });
         //await router.push("/dashboard");
+        await navigateTo({ path: '/dashboard' })
       } else {
         const err = Error(
           "Unable to fetch user after login, check your API settings."
