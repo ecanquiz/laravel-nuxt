@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from "vue"
-import { useAuthStore } from '../../stores/auth'
-import IconLogout from "../icon/Logout.vue";
+import { useAuthStore } from '@/stores/auth'
+import IconLogout from "@/components/icon/Logout.vue";
 
 const authStore = computed(() => useAuthStore())
 const logout = () => authStore.value.logout()

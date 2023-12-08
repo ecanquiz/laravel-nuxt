@@ -7,7 +7,7 @@
 </script>
 
 <template>
-  <div class="p-5 m-auto w-full sm:w-4/12">
+  <div class="p-5 m-50 w-50">
     <IconLogo class= "flex justify-center pt-4 sm:justify-start sm:pt-0 w-1/4 y-1/4 h-auto m-auto bg-transparent"/>
     <h2 class="my-4 text-2xl text-center">Regístrerse</h2>
     <FormRegister

@@ -12,7 +12,7 @@ interface UserAuthRegister{
 
 export function useRegister() {
   //const router = useRouter();
-  const error = ref(null)
+  const error = ref('')
   const sending = ref(false)
   
   const register = async (form: UserAuthRegister) => {
@@ -22,7 +22,7 @@ export function useRegister() {
       password: form.password,
       password_confirmation: form.passwordConfirm
     };
-    error.value = null;
+    error.value = '';
     sending.value = true;  
     AuthService.registerUser(payload)
       //.then(() => router.push("/dashboard"))

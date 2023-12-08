@@ -6,6 +6,6 @@
 
 <style scoped>
 .section {
-  @apply flex justify-center min-h-screen;
+  @apply flex justify-center min-h-screen p-8;
 }
 </style>

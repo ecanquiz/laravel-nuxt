@@ -9,7 +9,7 @@ export default defineNuxtConfig({
     //  ]
     //}
   },
-  css: [`assets/styles/main.min.css`],
+  css: [`assets/styles/main.css`],
   devtools: { enabled: true },
   modules: [
     //'@nuxtjs/tailwindcss',

@@ -1,7 +1,7 @@
-import type { AuthStore } from '@/modules/Auth/types/Store/AuthStore'
+import type { AuthStore } from '@/types/auth/index'
 
 export default (): AuthStore => ({
-  user: null,
+  user: { isAdmin: false },
   loading: false,
   error: '',
 });

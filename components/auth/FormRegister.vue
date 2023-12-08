@@ -9,10 +9,10 @@
     sending: Boolean
   })  
   const emit = defineEmits(['submit'])   
-  const name = ref(null)
-  const email = ref(null)
-  const password = ref(null)
-  const passwordConfirm = ref(null)
+  const name = ref(undefined)
+  const email = ref(undefined)
+  const password = ref(undefined)
+  const passwordConfirm = ref(undefined)
   const submit = async () => {
     emit('submit', {
       name: name.value,

@@ -1,9 +1,9 @@
 import { ref } from "vue"
 //import { useRouter } from 'vue-router';
-import { useAuthStore } from '../../stores/auth'
-import { getError } from "../../utils/helpers";
-import * as AuthService from "../../services/auth";
-import type { FormLogin, StandaloneLogin } from '../../types/auth'
+import { useAuthStore } from '@/stores/auth'
+import { getError } from "@/utils/helpers";
+import * as AuthService from "@/services/auth";
+import type { FormLogin, StandaloneLogin } from '@/types/auth'
 
 export function useLogin(): StandaloneLogin {
   //const router = useRouter();
