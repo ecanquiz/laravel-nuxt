@@ -1,16 +1,15 @@
 <script setup lang="ts">
 import { ref, computed } from "vue";
-import { useAuthStore } from "../../stores/auth"
+import { useAuthStore } from "@/stores/auth"
 //import { useAuthStore } from "../../stores/auth"
-import { useSidebar } from "../../composables/auth/useSidebar"
+import { useSidebar } from "@/composables/app/useSidebar"
 //import Logout from "..modules/Auth/components/Logout.vue"
 //import LoginIcon from "@/icons/LoginIcon.vue"
 //import IcomHome from "../../icon/Home.vue"
 //import IcomHome from "../../icon/Home.vue"
-import IcomHome from "../../components/icon/Home.vue"
+import IcomHome from "@/components/icon/Home.vue"
 
-//import SelectTheme from "../components/layouts/SelectTheme.vue"
-import SelectTheme from "./SelectTheme.vue"
+import SelectTheme from "@/layouts/partials/SelectTheme.vue"
 
 //import IconLogo from "@/icons/IconLogo.vue"
 

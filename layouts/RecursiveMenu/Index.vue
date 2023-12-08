@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { useAuthStore } from "@/modules/Auth/stores/index"
-import { getAuthMenu } from "@/modules/Auth/services"
+import { useAuthStore } from "@/stores/auth/index"
+import { getAuthMenu } from "@/services/auth/index"
 import { ref, onMounted } from "vue"
 import TreeMenu from "./TreeMenu.vue"
 import type { Menu } from "@/types/Menu"
@@ -21,7 +21,8 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div v-if="loading" class="p-5">
+  <div class="w-max">
+    <div v-if="loading" class="p-5">
     Loading...
   </div>
   <nav v-else class="py-6 px-6">     
@@ -30,15 +31,11 @@ onMounted(async () => {
         v-for="(menu, index) in menus"
         :key="index"
         :menu="menu"
-        :depth="depth + 1"/>
-      </ul>
-    </nav>
-    <AppLink to="https://github.com/CaribesTIC/laravuel-api">
-      LaraVuel-API
-    </AppLink><br/>
-    <AppLink to="https://github.com/CaribesTIC/laravuel-spa">
-      LaraVuel-Spa
-    </AppLink>
+        :depth="depth + 1"
+      />
+    </ul>
+  </nav>
+  </div>      
 </template>
 
 

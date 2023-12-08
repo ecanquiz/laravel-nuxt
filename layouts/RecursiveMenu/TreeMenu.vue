@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref, computed, defineAsyncComponent } from "vue"
 import { useRoute } from 'vue-router'
+//import AppLink from "@/components/app/AppLink.vue"
 import type { Menu } from "@/types/Menu"
 
 const props = defineProps<{
@@ -46,8 +47,8 @@ const toggleChildren = ()=> showChildren.value = !showChildren.value
     <div v-else
       class="mb-2 py-1 px-2"
       :class="routePathRoot ? 'activeClass' : 'inactiveClass'"      
-    >      
-      <AppLink :to="{ name: menu.path }">
+    >
+      <NuxtLink :to="menu.path">
         <span class="flex items-center group py-0">
           <Component v-if="menu && menu.icon!==''"
             :is="iconName"
@@ -55,7 +56,7 @@ const toggleChildren = ()=> showChildren.value = !showChildren.value
           />
           {{ menu.title }}
         </span>
-      </AppLink>
+      </NuxtLink>
     </div>
     <ul
       v-if="menu"

@@ -60,6 +60,6 @@
         data-testid="submit-btn"
       >{{ props.sending ? 'Iniciando sesión...' : 'Iniciar sesión' }}</UButton>
     </div>
-    <AppFlashMessage :error='props.error' />
+    <!--AppFlashMessage :error='props.error' /-->
   </form>
 </template>
