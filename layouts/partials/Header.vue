@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { ref, computed } from "vue";
 import { useAuthStore } from "@/stores/auth"
-//import { useAuthStore } from "../../stores/auth"
 import { useSidebar } from "@/composables/app/useSidebar"
 //import Logout from "..modules/Auth/components/Logout.vue"
 //import LoginIcon from "@/icons/LoginIcon.vue"
@@ -12,10 +11,19 @@ import IcomHome from "@/components/icon/Home.vue"
 import SelectTheme from "@/layouts/partials/SelectTheme.vue"
 
 //import IconLogo from "@/icons/IconLogo.vue"
-
+const loading = ref(false)
 const { isOpen, isClose } = useSidebar()
 const dropdownOpen = ref(false)
-const store = computed(() => useAuthStore())
+//const store = computed(() => useAuthStore())
+const store = useAuthStore()
+
+onMounted(async () => {
+  if (store.authUser) {    
+    loading.value = true
+    await store.getAuthUser()
+    loading.value = false
+  }
+})
 </script>
 
 <template>
