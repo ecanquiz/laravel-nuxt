@@ -15,7 +15,8 @@ export default defineNuxtConfig({
     //'@nuxtjs/tailwindcss',
     '@pinia/nuxt',
     "nuxt-lodash",
-    '@nuxt/ui'
+    '@nuxt/ui',
+    '~/modules/User/module'
   ],
   ui: {
     global: true,
