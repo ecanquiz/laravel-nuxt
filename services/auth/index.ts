@@ -1,7 +1,6 @@
 import Http from "../../utils/Http";
 
-export const login = async <T>(payload: T) => {
-  console.log(payload)
+export const login = async <T>(payload: T) => {  
   await Http.get("/sanctum/csrf-cookie");
   return Http.post("/login", payload);
  }

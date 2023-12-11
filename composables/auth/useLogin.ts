@@ -21,6 +21,7 @@ export function useLogin(): StandaloneLogin {
       sending.value = true;
       await AuthService.login(payload);
       const authUser = await auth.getAuthUser();
+      console.log(authUser)
       if (authUser) {
         auth.setGuest({ value: "isNotGuest" });
         //await router.push("/dashboard");
