@@ -156,9 +156,8 @@ onMounted(async () => {
             to="/profile"
             class="block px-4 py-2 text-sm hover:bg-gray-400"
           >
-            {{ store.authUser ? store.authUser.name : 'Profile' }}
+            {{ store.authUser && store.authUser.name? store.authUser.name : 'Profile' }}
           </NuxtLink>
-
           <NuxtLink
             to="/"
             class="block px-4 py-2 text-sm hover:bg-gray-400"
