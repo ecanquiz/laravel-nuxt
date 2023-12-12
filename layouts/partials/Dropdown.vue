@@ -32,7 +32,7 @@
       >
         {{ store.authUser ? store.authUser.name : 'Profile' }}
       </NuxtLink>
-
+      {{ store.authUser  }}
       <NuxtLink
         to="/"
         class="block px-4 py-2 text-sm hover:bg-gray-400"

@@ -16,6 +16,7 @@ const emit = defineEmits(['submit'])
 const store = useAuthStore()  
 const name = ref<string>()
 const email = ref<string>()
+const loading = ref(false)
   
 const submit = async () => {
   emit('submit', {
@@ -24,7 +25,12 @@ const submit = async () => {
   })
 }
 
-onMounted(() => {
+onMounted(async () => {
+  if (store.authUser) {    
+    loading.value = true
+    await store.getAuthUser()
+    loading.value = false
+  }
   name.value = store.authUser.name
   email.value = store.authUser.email
 })
