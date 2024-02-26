@@ -1,10 +1,11 @@
 <script setup lang="ts">
 // @ts-nocheck
-defineProps<{
+const props= defineProps<{
   links: []
 }>()
 
-const baseUrlApi = process.env.VUE_APP_API_URL+'/api'
+const runtimeConfig = useRuntimeConfig();
+const baseUrlApi = runtimeConfig.public.API_BASE_URL
 </script>
 
 <template>

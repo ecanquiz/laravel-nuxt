@@ -1,7 +1,10 @@
 <script setup lang="ts">
 import { ref, computed } from "vue";
+import { useDark, useToggle, onClickOutside } from "@vueuse/core"
 import { useAuthStore } from "@/stores/auth"
 import { useSidebar } from "@/composables/app/useSidebar"
+import DropdownMenu from "@/layouts/partials/DropdownMenu.vue"
+
 //import Logout from "..modules/Auth/components/Logout.vue"
 //import LoginIcon from "@/icons/LoginIcon.vue"
 //import IcomHome from "../../icon/Home.vue"
@@ -24,6 +27,9 @@ onMounted(async () => {
     loading.value = false
   }
 })
+
+const target = ref(null)
+onClickOutside(target, event => dropdownOpen.value = false)
 </script>
 
 <template>
@@ -83,7 +89,8 @@ onMounted(async () => {
         <IcomHome class="w-6 h-6" />
       </NuxtLink>
 
-      <div class="relative mr-4 lg:mx-0">
+      <!-- GLOBAL SEARCH 
+        div class="relative mr-4 lg:mx-0">
         <span class="absolute inset-y-0 left-0 pl-3 flex items-center">
           <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none">
             <path
@@ -101,7 +108,7 @@ onMounted(async () => {
           type="text"
           placeholder="Search"
         />
-      </div>
+      </div-->
     </div>
 
     <div class="flex items-center">
@@ -146,7 +153,7 @@ onMounted(async () => {
           </svg>
         </button>
 
-        <div
+        <!--div
           v-show="dropdownOpen"
           @click="dropdownOpen = false"
           class="absolute right-0 mt-2 py-2 w-48 bg-base-100 rounded-md shadow-xl z-20"
@@ -164,7 +171,14 @@ onMounted(async () => {
           >
             <AuthLogout />
           </NuxtLink> 
-        </div>        
+        </div--> 
+        
+        <DropdownMenu
+          ref="target"
+          v-show="dropdownOpen"
+          @click="dropdownOpen = false"
+        />
+
       </div>
     </div>    
 

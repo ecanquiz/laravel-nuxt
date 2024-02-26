@@ -1,11 +1,13 @@
 import { onMounted, reactive, ref } from 'vue'
 import { useRouter } from 'vue-router'
-import useHttp from "@/composables/useHttp";
-import UserService from "@/modules/User/services";
-import type Role from "../types/Role"
-import type User from "../types/User"
+//import useHttp from "@/composables/useHttp";
+import useHttp from "@/composables/app/useHttp"
 
-export default (userId?: string) => {
+import UserService from "@/modules/User/services";
+//import type Role from "../types/Role"
+//import type User from "../types/User"
+
+export default (userId?: string | string[]) => {
   const router = useRouter();
   
   const user: User = reactive({    
