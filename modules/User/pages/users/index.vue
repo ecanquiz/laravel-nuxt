@@ -107,12 +107,12 @@ const {
                     Eliminar
                   </AppBtn-->
                   
-                  <AppBtn
+                  <NuxtLink
                     class="btn btn-primary btn-xs mr-1"                    
-                    @click=""
+                    :to="`/users/edit/${row.id}`"
                   >
                     Editar
-                  </AppBtn>
+                  </NuxtLink>
                   <AppBtn
                     @click=""                    
                     class="btn btn-danger btn-xs ml-1"                    

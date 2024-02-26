@@ -67,7 +67,7 @@
     </UFormGroup>
    
 
-    <div class="flex items-center justify-between mt-4">
+    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mt-4">
       <label class="flex items-center">
         <input
           type="checkbox"
@@ -78,6 +78,7 @@
           </span>
       </label>
       <UButton
+        class="justify-center"
         type="submit"
         :isDisabled='props.sending'
         data-testid="submit-btn"

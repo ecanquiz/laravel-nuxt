@@ -43,8 +43,8 @@ export default defineNuxtModule({
       }),
       pages.push({
         name: 'user-page',
-        path: '/users/:id',
-        file: resolve(__dirname, './pages/users/[id].vue')
+        path: '/users/edit/:id',
+        file: resolve(__dirname, './pages/users/edit/[id].vue')
       })
     })
 

@@ -1,6 +1,13 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   //ssr: true,
+  runtimeConfig: {
+    //secret: process.env.SECRET,
+    public: {
+      API_BASE_URL: process.env.API_BASE_URL,
+ 
+    },
+  },
   app: {
     baseURL: '/',
     //head: {
