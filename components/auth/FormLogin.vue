@@ -1,12 +1,17 @@
 <script setup lang="ts">
   import { reactive } from "vue"
   import type { FormLogin } from "types/auth";
+  // @ts-ignore
   import type { FormError, FormSubmitEvent } from '#ui/types'
 
   const props = defineProps<{
     error?: object | string | undefined,
     sending: boolean
   }>()  
+
+  const emit = defineEmits<{
+    (e: 'submit', { email, password }: FormLogin): void
+  }>()
 
   const state = reactive({
     email: '',
@@ -26,11 +31,7 @@
     return errors
   }
 
-  const emit = defineEmits<{
-    (e: 'submit', { email, password }: FormLogin): void
-  }>()
-  
-  const submit = async () => {
+  const submit = async (event: FormSubmitEvent<any>) => {
     emit('submit', {
       email: state.email,
       password: state.password
@@ -39,19 +40,18 @@
 </script>
 
 <template>
-  <!--form @submit.prevent="submit"-->
   <UForm :validate="validate" :state="state" class="space-y-4" @submit.prevent="submit">
     <UFormGroup label="Email" name="email">
       <UInput
-      type="email"
-      label="Correo Electrónico"
-      name="email"
-      v-model="state.email"
-      autocomplete="email"
-      placeholder="email@domain.ext"      
-      class="mb-2"
-      data-testid="email-input"      
-    />
+        type="email"
+        label="Correo Electrónico"
+        name="email"
+        v-model="state.email"
+        autocomplete="email"
+        placeholder="email@domain.ext"      
+        class="mb-2"
+        data-testid="email-input"      
+      />
     </UFormGroup>
 
     <UFormGroup label="Password" name="password">
@@ -64,8 +64,7 @@
         class="mb-4"
         data-testid="password-input"
       />
-    </UFormGroup>
-   
+    </UFormGroup>   
 
     <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mt-4">
       <label class="flex items-center">
@@ -77,12 +76,16 @@
             Recuérdame
           </span>
       </label>
+
       <UButton
         class="justify-center"
         type="submit"
         :isDisabled='props.sending'
         data-testid="submit-btn"
-      >{{ props.sending ? 'Iniciando sesión...' : 'Iniciar sesión' }}</UButton>
+      >
+        {{ props.sending ? 'Iniciando sesión...' : 'Iniciar sesión' }}
+      </UButton>
+
     </div>
     <AppFlashMessage :error='props.error' />
   </UForm>
